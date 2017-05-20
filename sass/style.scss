@@ -1,9 +1,9 @@
 /*!
 Theme Name: templater
-Theme URI: http://underscores.me/
-Author: Jeff Behnke
-Author URI: http://validwebs.com
-Description: Custom theme: templater, developed by Jeff Behnke
+Theme URI: https://github.com/advocaat/ddd
+Author: Adam Nicholls
+Author URI: http://google.com
+Description: Custom theme: templater, developed by Adam Nicholls
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -86,14 +86,14 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "modules/clearings";
 
 /*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-@import "site/secondary/widgets";
-
-/*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
 @import "site/site";
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+@import "site/secondary/widgets";
 
 /*--------------------------------------------------------------
 # Infinite scroll

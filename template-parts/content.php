@@ -12,6 +12,8 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
+	
+		templater_entry_header();
 		if ( is_single() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
@@ -42,6 +44,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php templater_entry_footer(); ?>
+		
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

@@ -25,40 +25,39 @@ function templater_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'templater' ),
+		esc_html_x( 'on %s', 'post date', 'templater' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'templater' ),
+		esc_html_x( 'Posted by %s', 'post author', 'templater' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+	echo '<span class="byline">' . $byline . '</span><span class="posted-on"> ' . $posted_on . '</span>'; // WPCS: XSS OK.
 
 }
 endif;
 
-if ( ! function_exists( 'templater_entry_footer' ) ) :
+if ( ! function_exists( 'templater_entry_header' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function templater_entry_footer() {
+function templater_entry_header() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'templater' ) );
-		if ( $categories_list && templater_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'templater' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
+
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'templater' ) );
 		if ( $tags_list ) {
 			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'templater' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
+			$categories_list = get_the_category_list( esc_html__( ', ', 'templater' ) );
+		if ( $categories_list && templater_categorized_blog() ) {
+			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'templater' ) . 	'</span>', $categories_list ); // WPCS: XSS OK.
+		}
 	}
-
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
 		/* translators: %s: post title */
@@ -77,6 +76,15 @@ function templater_entry_footer() {
 	);
 }
 endif;
+
+/**
+ * Prints a list of categorys for a post.
+ *
+ * 
+ */
+function templater_add_category_list(){
+
+}
 
 /**
  * Returns true if a blog has more than 1 category.

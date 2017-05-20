@@ -5,7 +5,76 @@
 .hentry {
 	margin: 0 0 1.5em;
 }
+.entry-header{
+	font-family: $font__sans;
+}
 
+.cat-links{
+	font-size:90%;
+	font-weight: 700;
+	a{
+		text-decoration: none;
+		text-transform: uppercase;
+		color: $color__secondary;
+		&:hover,
+		&:focus{
+			background-color: $color__secondary;
+			color: white;
+		}
+	}
+}
+
+.entry-title{
+	margin: .125em 0 .25em;
+	font-size: 2.5em;
+	
+	@media screen and (min-width: $query__medium){
+		font-size:3em;
+	}
+	a{		
+		-webkit-text-stroke-width: 1px;
+   		-webkit-text-stroke-color: $color__secondary;
+		color: $color__skin;
+		text-decoration: none;
+		&:focus,
+		&:hover{
+			border-bottom: 5px solid $color__secondary;
+			color: $color__secondary;
+			-webkit-text-stroke-width: 2px;
+			-webkit-text-stroke-color: $color__skin;
+		}
+	}
+	
+}
+
+
+.entry-meta{
+	font-size: 90%;
+	a{ 
+		font-weight: 700;
+		text-decoration: none;
+		color: black;
+		&:hover,
+		&:focus{
+			color: $color__skin;
+			border-bottom: 3px solid $color__secondary;
+		}
+	}
+}
+
+.byline{
+	&::after{
+		content: " | ";
+		margin: 0 .5em;
+	}
+}
+.comments-link,
+.edit-link{
+	&::before{
+		content: " | ";
+		margin: 0 .5em;
+	}
+}
 .byline,
 .updated:not(.published){
 	display: none;
